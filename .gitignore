@@ -1,0 +1,4 @@
+sapassword.env
+/sqldata/**/*
+!/sqldata/readme.txt
+.DS_Store

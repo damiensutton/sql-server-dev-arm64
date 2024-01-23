@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+    sqlserverdev:
+        image: mcr.microsoft.com/azure-sql-edge:latest
+        ports:  
+          - "14333:1433"
+        env_file:
+          - sqlserver.env
+          - sapassword.env
+        restart: always
+        volumes: 
+          - sqldata:/var/opt/mssql/data
+volumes:
+  sqlsystem:
+  sqldata:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./sqldata
